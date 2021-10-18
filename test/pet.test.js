@@ -47,4 +47,17 @@ describe('constructor', () => {
       pet.walk();
       expect(pet.fitness).toEqual(10);
     });
+    it('checks hunger level after pet has been fed', () => {
+      const pet = new Pet('Fido');
+      pet.hunger = 10;
+      pet.feed();
+      expect(pet.hunger).toEqual(7);
+    });
+    it('checks hunger level does not go below 0', () => {
+      const pet = new Pet('Fido');
+      pet.hunger = 2;
+      pet.feed();
+      expect(pet.hunger).toEqual(0);
+    });
+
   });
