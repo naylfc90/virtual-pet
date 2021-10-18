@@ -19,8 +19,3 @@ If your pet gets too hungry or unfit, it will DIE
 If your pet gets to 30 days old it will DIE 
 
 # Instructions
-Fork this repository and clone down your fork.
-
-Change into the cloned folder, and add you and your partner's remotes to you your local.
-
-Run npm install to install the necessary libraries required for Node.js to run.
