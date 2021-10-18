@@ -59,5 +59,24 @@ describe('constructor', () => {
       pet.feed();
       expect(pet.hunger).toEqual(0);
     });
+    it('checks up on pet to see what they need', () => {
+      const pet = new Pet('Fido');
+      pet.fitness = 3;
+      expect(pet.checkUp()).toEqual('I need a walk');
+
+      const pet2 = new Pet('Milo');
+      pet2.hunger = 5;
+      expect(pet2.checkUp()).toEqual('I am hungry');
+
+      const pet3 = new Pet('Dido');
+      pet3.fitness = 2;
+      pet3.hunger = 6;
+      expect(pet3.checkUp()).toEqual('I am hungry AND I need a walk');
+
+      const pet4 = new Pet('Liro');
+      pet3.fitness = 4;
+      pet3.hunger = 4;
+      expect(pet4.checkUp()).toEqual('I feel great!');
+    })
 
   });
