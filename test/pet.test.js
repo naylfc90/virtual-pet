@@ -17,4 +17,34 @@ describe('constructor', () => {
       pet.growUp();
       expect(pet.age).toEqual(1);
     });
+    it('checks initial hunger', () => {
+      const pet = new Pet('Fido');
+      expect(pet.hunger).toEqual(0);
+    });
+    it('checks hunger after pet has grown up', () => {
+      const pet = new Pet('Fido');
+      pet.growUp();
+      expect(pet.hunger).toEqual(5);
+    });
+    it('checks initial fitness', () => {
+      const pet = new Pet('Fido');
+      expect(pet.fitness).toEqual(10);
+    });
+    it('checks fitness after pet has grown up', () => {
+      const pet = new Pet('Fido');
+      pet.growUp();
+      expect(pet.fitness).toEqual(7);
+    });
+    it('checks fitness after pet has been for a walk', () => {
+      const pet = new Pet('Fido');
+      pet.fitness = 2;
+      pet.walk();
+      expect(pet.fitness).toEqual(6);
+    });
+    it('checks fitness level does not go above 10', () => {
+      const pet = new Pet('Fido');
+      pet.fitness = 9;
+      pet.walk();
+      expect(pet.fitness).toEqual(10);
+    });
   });
