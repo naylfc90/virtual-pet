@@ -1,7 +1,10 @@
 // added a magic number variables outside of constructor function
-const MAXIMUM_FITNESS = 10;
 const BIRTHDAY = 1;
 const MINIMUM_HUNGER = 0;
+const MAXIMUM_HUNGER = 10;
+const MINIMUM_FITNESS = 0;
+const MAXIMUM_FITNESS = 10;
+const MAXIMUM_AGE = 30;
 
 function Pet(name) {
     this.name = name;
@@ -11,7 +14,7 @@ function Pet(name) {
 
     Pet.prototype = {
         get isAlive() {
-          return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+          return this.age < MAXIMUM_AGE && this.hunger < MAXIMUM_HUNGER && this.fitness > MINIMUM_FITNESS;
         }
     };
     Pet.prototype.growUp = function() {
