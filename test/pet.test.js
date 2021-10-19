@@ -78,5 +78,17 @@ describe('constructor', () => {
       pet3.hunger = 4;
       expect(pet4.checkUp()).toEqual('I feel great!');
     })
+    it('checks pet is alive', () => {
+      const pet = new Pet('Fido');
+      pet.age = 10;
+      pet.hunger = 5;
+      pet.fitness = 5;
+      expect(pet.isAlive).toEqual(true);
 
+      const pet2 = new Pet('Dido');
+      pet2.age = 31;
+      pet2.hunger = 5;
+      pet2.fitness = 5;
+      expect(pet2.isAlive).toEqual(false);
+    });
   });
