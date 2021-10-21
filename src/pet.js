@@ -1,4 +1,4 @@
-// added a magic number variables outside of constructor function
+// added magic number variables outside of constructor function
 const BIRTHDAY = 1;
 const MINIMUM_HUNGER = 0;
 const MAXIMUM_HUNGER = 10;
