@@ -49,9 +49,9 @@ describe('constructor', () => {
     });
     it('checks hunger level after pet has been fed', () => {
       const pet = new Pet('Fido');
-      pet.hunger = 10;
+      pet.hunger = 9;
       pet.feed();
-      expect(pet.hunger).toEqual(7);
+      expect(pet.hunger).toEqual(6);
     });
     it('checks hunger level does not go below 0', () => {
       const pet = new Pet('Fido');
@@ -98,7 +98,7 @@ describe('constructor', () => {
       expect(pet.walk()).toEqual('Your pet is no longer alive :(');
 
       const pet2 = new Pet('Milo');
-      pet2.hunger = 11;
+      pet2.hunger = 10;
       pet2.feed();
       expect(pet2.feed()).toEqual('Your pet is no longer alive :(');
 
@@ -115,7 +115,7 @@ describe('constructor', () => {
       expect(pet5.checkUp()).toEqual('I feel great!');
 
       const pet6 = new Pet ('Tido');
-      pet6.hunger = 10;
+      pet6.hunger = 9;
       pet6.feed();
       expect(pet6.checkUp()).toEqual('I am hungry');
     });

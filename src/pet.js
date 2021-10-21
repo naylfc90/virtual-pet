@@ -11,7 +11,6 @@ function Pet(name) {
     this.age = 0;
     this.hunger = 0;
     this.fitness = MAXIMUM_FITNESS;
-    this.alive = true;
 
     Pet.prototype = {
         get isAlive() {
@@ -19,8 +18,7 @@ function Pet(name) {
         }
     };
     Pet.prototype.growUp = function() {
-        if (this.age > MAXIMUM_AGE) {
-            this.alive = false;
+        if (!this.isAlive) {
             return 'Your pet is no longer alive :(';
         }
         this.age += BIRTHDAY;
@@ -28,8 +26,7 @@ function Pet(name) {
         this.fitness -= 3;
     };
     Pet.prototype.walk = function() {
-        if (this.fitness < MINIMUM_FITNESS) {
-            this.alive = false;
+        if (!this.isAlive) {
             return 'Your pet is no longer alive :(';
         } else if ((this.fitness + 4) <= MAXIMUM_FITNESS) {
             this.fitness += 4;
@@ -38,8 +35,7 @@ function Pet(name) {
         }
     };
     Pet.prototype.feed = function() {
-        if (this.hunger > MAXIMUM_HUNGER) {
-            this.alive = false;
+        if (!this.isAlive) {
             return 'Your pet is no longer alive :(';
         } else if ((this.hunger - 3) >= MINIMUM_HUNGER) {
             this.hunger -= 3;
@@ -51,8 +47,7 @@ function Pet(name) {
         let needsWalk = false;
         let needsFood = false;
 
-        if (this.age > MAXIMUM_AGE || this.hunger > MAXIMUM_HUNGER || this.fitness < MINIMUM_FITNESS) { 
-            this.alive = false;
+        if (!this.isAlive) {
             return 'Your pet is no longer alive :(';
         }
         if (this.fitness <= 3) {
