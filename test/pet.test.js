@@ -94,22 +94,19 @@ describe('constructor', () => {
     it('checks that exceptions are thrown if pet is not alive', () => {
       const pet = new Pet('Fido');
       pet.fitness = -1;
-      pet.walk();
-      expect(pet.walk()).toEqual('Your pet is no longer alive :(');
+      expect(() => pet.walk()).toThrow('Your pet is no longer alive :(');
 
       const pet2 = new Pet('Milo');
       pet2.hunger = 10;
-      pet2.feed();
-      expect(pet2.feed()).toEqual('Your pet is no longer alive :(');
+      expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
 
       const pet3 = new Pet('Dido');
       pet3.age = 31;
-      pet3.growUp();
-      expect(pet3.growUp()).toEqual('Your pet is no longer alive :(');
+      expect(() => pet.growUp()).toThrow('Your pet is no longer alive :(');
 
       const pet4 = new Pet ('Lido');
       pet4.age = 31;
-      expect(pet4.checkUp()).toEqual('Your pet is no longer alive :(');
+      expect(() => pet.checkUp()).toThrow('Your pet is no longer alive :(');
 
       const pet5 = new Pet ('Bido');
       expect(pet5.checkUp()).toEqual('I feel great!');
