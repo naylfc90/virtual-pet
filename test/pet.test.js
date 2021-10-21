@@ -151,4 +151,11 @@ describe('constructor', () => {
       parent.adoptChild(child);
       expect(parent.children[0].checkUp()).toEqual('I feel great!');
     })
+    it('tests that parent can have a baby by providing name only', () => {
+      const parent = new Pet('Homer');
+      const child = new Pet('Bart');
+      parent.adoptChild(child);
+      parent.haveBaby('Lisa');
+      console.log(parent);
+    })  
   });
