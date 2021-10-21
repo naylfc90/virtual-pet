@@ -116,4 +116,39 @@ describe('constructor', () => {
       pet6.feed();
       expect(pet6.checkUp()).toEqual('I am hungry');
     });
+    it('adds child to parents children property', () => {
+      const parent = new Pet('Homer');
+      const child = new Pet('Bart');
+      parent.adoptChild(child);
+    })  
+    it('checks that the child is being fed', () => {
+      const parent = new Pet('Homer');
+      const child = new Pet('Bart');
+      parent.adoptChild(child);
+      child.hunger = 7;
+      parent.children[0].feed();
+      expect(child.hunger).toEqual(4);
+    })
+    it('checks that the child is getting exercise', () => {
+      const parent = new Pet('Homer');
+      const child = new Pet('Bart');
+      parent.adoptChild(child);
+      child.fitness = 7;
+      parent.children[0].walk();
+      expect(child.fitness).toEqual(10);
+    })
+    it('checks that the child is growing older', () => {
+      const parent = new Pet('Homer');
+      const child = new Pet('Bart');
+      parent.adoptChild(child);
+      child.age = 9;
+      parent.children[0].growUp();
+      expect(child.age).toEqual(10);
+    })
+    it('checks up on the child', () => {
+      const parent = new Pet('Homer');
+      const child = new Pet('Bart');
+      parent.adoptChild(child);
+      expect(parent.children[0].checkUp()).toEqual('I feel great!');
+    })
   });
